@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-	#domain.com/music
+	#/music/
 	path("", views.index, name="index"),
+	#music/51/
+	path("<int:album_id>/", views.detail, name="detail"),
 ] 
