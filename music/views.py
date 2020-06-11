@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
 
 from .models import Album
 
@@ -10,8 +9,13 @@ def index(request):
 		"albums" : albums,
 	}
 	return render(request,"music/index.html",frontend)
+
 #Detail Page
 def detail(request, album_id):
-	return HttpResponse(f"<h1>Details for Album id:{album_id} </h1>")
+	album = get_object_or_404(Album, pk=album_id)
+	frontend = {
+		"album" : album,
+	}
+	return render(request,"music/detail.html",frontend)
 
 
