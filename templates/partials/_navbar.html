@@ -1,0 +1,35 @@
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-bottom" style="background-color: #651fff;">
+		<a class="navbar-brand" href="{% url 'music:index' %}" style ="color: white;"><i class="fas fa-compact-disc"></i>   Bayelsa's</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggler" aria-controls="toggler" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="toggler">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'music:index' %}" style ="color: white;"><i class="fas fa-house-user"></i> Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li></li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" style ="color: white;"><i class="fas fa-life-ring"></i> Albums</a>
+				</li>
+				<li></li>
+				<li class="nav-item">
+					<a class="nav-link" href="#"style ="color: white;"><i class="fas fa-music"></i> Songs</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0" method="get">
+				<input class="form-control mr-sm-2" type="search" placeholder="Albums, Songs">
+				<button class="btn btn-outline-success my-2 my-sm-0 btn-success" style="color: white;" type="submit">Search</button>
+			</form>
+			<ul class="nav justify-content-right">
+				<li class="nav-item">
+					<a class="nav-link" href="" style ="color: white;"><i class="fas fa-running"></i> Login/Register</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="" style ="color: white;"><i class="fas fa-folder-plus"></i> Add Album</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>

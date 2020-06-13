@@ -8,13 +8,14 @@ class Album(models.Model):
 	album_logo = models.CharField(max_length= 1000)
 
 	def __str__(self): #Creating Object name
-		return f"{self.album_title} - {self.artist}"
+		return f"{self.album_title}"
 
 # Song DB Table
 class Song(models.Model):
 	album = models.ForeignKey(Album, on_delete=models.CASCADE) #Linking song db to album db
 	file_type = models.CharField(max_length=10)
 	song_title = models.CharField(max_length=250)
+	is_favorite = models.BooleanField(default = False)
 
 	def __str__(self):
-		return f"{self.song_title} - {self.album}"
+		return f"{self.song_title}"

@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Music</title>
-		<link rel="stylesheet" href="">
-	</head>
-	<body>
-		<ul>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+	Bayelsa Welcomes You!
+{% endblock %}
+{% block content %}
+	<div class="jumbotron jumbotron-fluid" style="background-color: #b39ddb;">
+		<div class="container" style="text-align: center;">
+			<h1 class="display-4" style="">Welcome to <i class="fas fa-compact-disc" style="color:#673ab7;"></i> Bayelsa's</h1>
+			<p class="lead">Nigeria's very own music cloud site <span>!</span>.</p>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-md-12">
+			<h6 class="display-4">Here are your albums, Felix!</h3>
+		</div>
+		<div class="row">
 			{% if albums %}
 				{% for album in albums %}
-					<li><a href="/music/{{ album.id }}">{{ album.album_title }}</a></li>
+					<div class="col-md-3">
+						<div class="card" style="width: 20rem;">
+							<img src="{% static 'img/background.png' %}" class="card-img-top" alt="..." height="">
+							<div class="card-body">
+								<h5 class="card-title">{{ album.album_title }}</h5>
+								<p class="lead card-text">{{ album.artist }}</p>
+								<a href="{% url 'music:detail' album.id %}" class="btn btn-primary">View</a>
+								<a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+								<a href="{% url 'music:detail' album.id %}" class="btn btn-light"><i class="fas fa-star"></i></a>
+							</div>
+						</div>
+					</div>
+					<hr>
 				{% endfor %}
-			{% else %}
-				<h3>You have no albums</h3>
+			{% else %}	
+				<h3 class="display-3">No Albums, Please Add</h3>
 			{% endif %}
-		</ul>
+		</div>
 		
-	</body>
-</html>
+	</div>
+{% endblock %}
