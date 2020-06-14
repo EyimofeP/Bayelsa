@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Bayelsa's | Add Song
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1 class="display-3">Add Song</h1>
+
+  <div class="row">
+    <div class="col-md-4 float-center">
+      <form action="" method="post" accept-charset="utf-8" enctype="multitype/form-data">
+        {% csrf_token %}
+        {% include 'music/form-template.html' %}
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn  btn-primary">Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

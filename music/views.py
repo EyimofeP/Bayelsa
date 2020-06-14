@@ -1,5 +1,9 @@
+from django.shortcuts import render
 from django.views import generic
-from .models import Album
+from django.views.generic.edit import CreateView, UpdateView, DeleteView 
+from django.urls import reverse_lazy
+
+from .models import Album, Song
 
 class IndexView(generic.ListView):
 	template_name = "music/index.html"
@@ -13,148 +17,22 @@ class DetailView(generic.DetailView):
 	template_name = "music/detail.html"
 	context_object_name = "album"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-from django.shortcuts import get_object_or_404, render
-
-from .models import Album, Song
-
-#Music HomePage
-def index(request):
-	albums = Album.objects.all()
-	frontend = {
-		"albums" : albums,
-	}
-	return render(request,"music/index.html",frontend)
-
-#Detail Page
-def detail(request, album_id):
-	album = get_object_or_404(Album, pk=album_id)
-	frontend = {
-		"album" : album,
-	}
-	return render(request,"music/detail.html",frontend)
-"""
+class AlbumCreate(CreateView):
+	model = Album
+	fields = "__all__"
+
+class AlbumUpdate(UpdateView):
+	model = Album
+	fields = "__all__"
+
+class AlbumDelete(DeleteView):
+	model = Album
+	success_url = reverse_lazy("music:index")
+
+class SongCreate(CreateView):
+	model = Song
+	fields = ['album','song_title', 'file_type']
+
+class SongUpdate(UpdateView):
+	model = Song
+	fields = ['album','song_title', 'file_type']

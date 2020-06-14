@@ -11,10 +11,6 @@
 				</li>
 				<li></li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" style ="color: white;"><i class="fas fa-life-ring"></i> Albums</a>
-				</li>
-				<li></li>
-				<li class="nav-item">
 					<a class="nav-link" href="#"style ="color: white;"><i class="fas fa-music"></i> Songs</a>
 				</li>
 			</ul>
@@ -27,9 +23,10 @@
 					<a class="nav-link" href="" style ="color: white;"><i class="fas fa-running"></i> Login/Register</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="" style ="color: white;"><i class="fas fa-folder-plus"></i> Add Album</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+				<a class="nav-link" href="{% url 'music:album-add' %}" style ="color: white;" ><i class="fas fa-folder-plus"></i> Add Album</a>
+			</li>
+		</ul>
+	</div>
+</nav>
 </div>
+
