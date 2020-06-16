@@ -20,4 +20,9 @@ urlpatterns = [
 	#path("album/<pk>/song/edit/", views.SongUpdate.as_view(), name="song-edit"),
 	#music/album/2/delete/
 	#path("album/<pk>/song/delete/", views.SongDelete.as_view(), name="song-delete"),
+	path("register/", views.UserFormView.as_view(), name="register"),
+	#Search
+	path("search", views.search, name="search"),
+	#Song Index
+	path("songs/", views.SongView.as_view(), name="song-index"),
 ] 
