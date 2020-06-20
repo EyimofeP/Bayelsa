@@ -14,13 +14,14 @@ class IndexView(generic.ListView):
 
 	def get_queryset(self):
 		return Album.objects.all()
+	
+def songs(request):
+	song = Song.objects.order_by("-album")
 
-class SongView(generic.ListView):
-	template_name = "music/song-index.html"
-	context_object_name = "song"
-
-	def get_queryset(self):
-		return Song.objects.order_by("-album")
+	frontend = {
+		"song" : song,
+	} 
+	return render(request, "music/song-index.html", frontend)
 
 class DetailView(generic.DetailView):
 	model = Album

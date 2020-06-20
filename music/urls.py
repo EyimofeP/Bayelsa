@@ -24,5 +24,5 @@ urlpatterns = [
 	#Search
 	path("search", views.search, name="search"),
 	#Song Index
-	path("songs/", views.SongView.as_view(), name="song-index"),
+	path("songs/", views.songs, name="song-index"),
 ] 
